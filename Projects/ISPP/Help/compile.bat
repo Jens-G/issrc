@@ -30,11 +30,7 @@ if errorlevel 1 goto failed
 
 echo.
 echo Running help compiler:
-echo.
-del Staging\ispp.chm
-if exist Staging\ispp.chm goto failed
-"%HHCEXE%" Staging\hh_project.hhp
-if %errorlevel% neq 1 goto failed
+call ..\..\..\copyhelp.bat
 if not exist Staging\ispp.chm goto failed
 
 rem  HHC leaves behind a temporary file each time it runs...
